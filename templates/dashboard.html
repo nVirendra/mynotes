@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="center" style="padding-top: 50px">
+
+    {% if user.is_authenticated %}
+        {% for messages in messages %}
+            Hello {{ user.username }}
+            <span class="teal-text text-darken-1">{{ messages }}</span>
+        {% endfor %}
+    {% endif %}
+    </div>
+{% endblock %}

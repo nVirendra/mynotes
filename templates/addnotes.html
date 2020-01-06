@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="row" style="padding-top: 100px;padding-bottom: 50px">
+        <div class="center">
+            {% for messages in messages %}
+                <span class="teal-text text-darken-1">{{ messages }}</span>
+            {% endfor %}
+        </div>
+        <div class="col s12 m6 l6 offset-l3 offset-m3">
+            <div class="card blue-grey lighten-5">
+                <div class="card-action">
+                    <div class="row">
+                        <form class="col s12" action="addnotes" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="first_name" type="text" class="validate" name="file_name">
+                                    <label for="title">Enter Notes Title</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="first_name" type="text" class="validate" name="file_desc">
+                                    <label for="desc">Enter Notes Description</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <div class="file-field input-field">
+                                        <div class="btn">
+                                            <span>Browse File</span>
+                                            <input type="file">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text" name="file">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="center">
+                                <input class="waves-effect waves-light btn" type="submit" name="submit" value="Upload">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
